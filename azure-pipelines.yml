@@ -20,3 +20,9 @@ steps:
 
 - script: npm test
   displayName: 'npm test'
+
+- task: PublishTestResults@2
+  displayName: 'Publish Test Results'
+  condition: succeededOrFailed()
+  inputs:
+    testResultsFiles: 'out/test-results.xml'
